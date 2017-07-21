@@ -9,6 +9,8 @@ TAG=${TAG:-${VERSION}}
 REPO=${REPO:-rancher}
 
 cp ../bin/etc-host-updater .
-docker build -t ${REPO}/etc-host-updater:${TAG} .
 
-echo Built ${REPO}/etc-host-updater:${TAG}
+IMAGE=${REPO}/etc-host-updater:${TAG}
+docker build -t ${IMAGE} .
+echo ${IMAGE} > ../dist/images
+echo Built ${IMAGE}
